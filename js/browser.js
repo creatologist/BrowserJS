@@ -89,6 +89,9 @@ var Browser = function( self ) {
 			break;
 		case 'chrome':
 			if ( this.ua.indexOf( 'chrome/' ) != -1 ) this.version = this.ua.split( 'chrome/' )[1].split( '.' )[0];
+			if ( this.ua.indexOf( ' safari/' ) != -1 ) {
+				this.versionFull = this.ua.split( ' chrome/' )[1].split( ' safari/' )[0];
+			}
 			break;
 		case 'safari':
 			if ( this.ua.indexOf( 'crios/' ) != -1 ) {
@@ -97,18 +100,31 @@ var Browser = function( self ) {
 				this.version = this.ua.split( 'crios/' )[1].split( '.' )[0];
 			} else if ( this.ua.indexOf( 'version/' ) != -1 ) {
 				this.version = this.ua.split( 'version/' )[1].split( '.' )[0];
+				
+				if ( this.ua.indexOf( ' safari/' ) != -1 ) {
+					this.versionFull = this.ua.split( 'version/' )[1].split( ' safari/' )[0];
+				} else if ( this.ua.indexOf( ' mobile/' ) != -1 ) {
+					this.versionFull = this.ua.split( 'version/' )[1].split( ' mobile/' )[0];
+				}
 			}
 			break;
 		case 'firefox':
-			if ( this.ua.indexOf( 'firefox/' ) != -1 ) this.version = this.ua.split( 'firefox/' )[1].split( '.' )[0];
+			if ( this.ua.indexOf( 'firefox/' ) != -1 ) {
+				this.version = this.ua.split( 'firefox/' )[1].split( '.' )[0];
+				this.fullVersion = this.ua.split( 'firefox/' )[1];
+			}
 			break;
 		case 'msie':
 			this.name = 'ie';
 			if ( this.ua.indexOf( 'msie ' ) != -1 ) this.version = this.ua.split( 'msie ' )[1].split( '.' )[0];
 			else if ( this.ua.indexOf( 'msie/' ) != -1 ) this.version = this.ua.split( 'msie/' )[1].split( '.' )[0];
-				
-				if ( this.version < 9 ) this.ielt9 = true;
-				break;
+			
+			if ( this.ua.indexOf( 'msie ' ) != -1 ) {
+				this.versionFull = this.ua.split( 'msie ' )[1].split( ';' )[0];
+			} 
+			
+			if ( this.version < 9 ) this.ielt9 = true;
+			break;
 	}
 	
 	if ( this.device && this.device.osVersion ) this.device.osVersion = Number( this.device.osVersion );

@@ -41,4 +41,4 @@ browser.onOrientationChange = function( browserRef ) {
 ```
 
 ### Output Samples
-(https://raw2.github.com/creatologist/BrowserJS/master/img/chrome.jpg)
+!(https://raw2.github.com/creatologist/BrowserJS/master/img/chrome.jpg)

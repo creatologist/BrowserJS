@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta charset='utf-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+		
+		<title>BrowserJS</title>
+		
+		<style>
+			body {
+				background-color: #a0d9f6;
+				text-align: center;
+				font-family: Helvetica;
+				color: black;
+				padding-top: 40px;
+				padding-bottom: 40px;
+			}
+			
+			#content {
+				font-size: 15px;
+				line-height: 32px;
+				
+				width: 300px;
+				left: 50%;
+				margin-left: -150px;
+				position: relative;
+			}
+			
+			body {
+				font-size: 30px;
+				font-weight: bold;
+			}
+			
+			.item {
+				width: inherit;
+				text-align: left;
+				font-weight: normal;
+				border-bottom: 1px dotted #fff;
+				padding-bottom: 4px;
+				margin-top: 6px;
+			}
+			
+			.item span {
+				font-weight: bold;
+				float: right;
+			}
+		</style>
+	</head>
+	
+	<body>
+		BrowserJS<br /><br />
+		<div id='content'>
+			hello <span>hello</span>
+		</div>
+		
+		<script src='js/browser.js'></script>
+		<script>
+			browser = new Browser();
+			
+			$content = document.getElementById( 'content' );
+			
+			var h = '';
+			
+			for ( key in browser ) {
+				if ( typeof browser[key] != 'object' ) h += '<div class="item">' + key + ': <span>' + browser[key] + '</span><br /></div>';
+				else {
+					for ( item in browser[key] )  h += '<div class="item">' + key + '.' + item + ': <span>' + browser[key][item] + '</span><br /></div>';
+				}
+			}
+			
+			$content.innerHTML = h;
+		</script>
+	</body>
+	
+</html>

@@ -26,25 +26,23 @@ var Browser = function() {
 	this.userAgent = navigator.userAgent;
 	this.ua = this.userAgent.toLowerCase();
 	
+	this.name = null;
+	this.version = null;
+	
 	if ( window.orientation != undefined ) this.mobile = true;
 	else this.mobile = false;
 	
 	if ( 'ontouchstart' in window || 'onmsgesturechange' in window ) this.touch = true;
 	else this.touch = false;
 	
-	this.name = null;
-	this.version = null;
-	
-	this.device = false;
-	
-	// work on later
-	/*this.os = {
-		name			: null,
-		version			: null,
-		versionFull		: null
-	};*/
-	
-	this.ielt9 = false;
+	this.osDetected = function( name ) {
+		// work on later - ie: Mac OSX 10.8.5
+		this.os = {
+			name			: name,
+			version			: null,
+			versionFull		: null
+		};
+	};
 	
 	this.deviceDetected = function( name ) {
 		this.device = {
@@ -65,12 +63,14 @@ var Browser = function() {
 	}
 	
 	// iphone + ipad - full os version ie: 7.0.3
-	if ( this.device !== null && ( this.device.name == 'iphone' || this.device.name == 'ipad' ) ) {
+	if ( this.device && ( this.device.name == 'iphone' || this.device.name == 'ipad' ) ) {
 		if ( this.ua.indexOf( 'version/' ) != -1 ) this.device.osVersion = this.ua.split( 'version/' )[1].split( '.' )[0];
 		if ( this.userAgent.indexOf( ' OS ' ) ) {
 			if ( this.userAgent.indexOf( ' like ' ) ) this.device.osVersionFull = this.userAgent.split( ' OS ' )[1].split( ( ' like ' ) )[0].split( '_' ).join( '.' );
 		}
 	}
+	
+	this.ielt9 = false;
 	
 	this.name = this.ua.match( /android/gi );
 	if ( this.name == null ) this.name = this.ua.match( /chrome/gi );
@@ -117,5 +117,6 @@ var Browser = function() {
 	delete( this.ua );
 	delete( this.userAgent );
 	delete( this.deviceDetected );
+	delete( this.osDetected );
 		
 };

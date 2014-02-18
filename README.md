@@ -7,10 +7,18 @@ In case you need some more information about your browser. For major browsers/de
 ### Example Code
 ```javascript
 var browser = new Browser();
+
+browser.onOrientationChange = function( browserRef ) {
+	console.log( browserRef.orientation ); // 0, 90, 180, -90
+	console.log( browserRef.layout ); //'portrait' -or- 'landscape'
+};
 ```
 
 ### 
 ```javascript
+// Browser event
++ onOrientationChange( browserRef ) {...}
+
 // Browser properties
 + name //String
 + version //Number
@@ -22,6 +30,10 @@ var browser = new Browser();
 + device.name //String
 + device.osVersion //Number
 + device.osVersionFull //String
+
+// only available if a mobile device
++ orientation // undefined -or- 0, 90, 180, -90
++ layout // 'portrait' -or- 'landscape'
 
 + ielt9 (ie version<9) //Boolean
 ```

@@ -41,8 +41,6 @@ browser.onOrientationChange = function( browserRef ) {
 ```
 
 ### Output Samples
-![alt text](https://raw2.github.com/creatologist/BrowserJS/master/img/iphone.jpg "iphone")
+![alt text](https://raw2.github.com/creatologist/BrowserJS/8e16fc7381c077d766d5db1aed64e7a0e84a422f/img/iphone.jpg "iphone")
 
-![alt text](https://raw2.github.com/creatologist/BrowserJS/master/img/chrome.jpg "Chrome")
-
-![alt text](https://raw2.github.com/creatologist/BrowserJS/master/img/safari.jpg "Safari")
+![alt text](https://raw2.github.com/creatologist/BrowserJS/8e16fc7381c077d766d5db1aed64e7a0e84a422f/img/chrome.jpg "Chrome")

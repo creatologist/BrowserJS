@@ -12,16 +12,16 @@ In case you need some more information about your browser.
 ### 
 ```javascript
 	// Browser properties
-	• mobile				//Boolean
-	• touch					//Boolean
+	+ mobile		//Boolean
+	+ touch			//Boolean
 	
-	• name					//String
-	• version				//Number
+	+ name			//String
+	+ version		//Number
 	
-	• device				//Object
-	• device.name			//String
-	• device.osVersion 		//Number
-	• device.osVersionFull 	//String
+	+ device		//Object
+	+ device.name		//String
+	+ device.osVersion 	//Number
+	+ device.osVersionFull 	//String
 	
-	• ielt9 (ie version<9)	//Boolean
+	+ ielt9 (ie version<9)	//Boolean
 ```

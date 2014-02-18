@@ -39,3 +39,6 @@ browser.onOrientationChange = function( browserRef ) {
 
 + ielt9 (ie version<9) //Boolean
 ```
+
+### Output Samples
+(https://raw2.github.com/creatologist/BrowserJS/master/img/chrome.jpg)

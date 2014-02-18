@@ -1,5 +1,5 @@
 #BrowserJS
-In case you need some more information about your browser.
+In case you need some more information about your browser. For major browsers/devices only - Chrome/Safari/Firefox/IE - iPad/iPhone/Android
 
 ### Example
 [http://christophermil.es/BrowserJS](http://christophermil.es/BrowserJS)

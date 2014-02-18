@@ -6,22 +6,22 @@ In case you need some more information about your browser.
 
 ### Example Code
 ```javascript
-	var browser = new Browser();
+var browser = new Browser();
 ```
 
 ### 
 ```javascript
-	// Browser properties
-	+ mobile //Boolean
-	+ touch	//Boolean
+// Browser properties
++ mobile //Boolean
++ touch	//Boolean
 	
-	+ name //String
-	+ version //Number
++ name //String
++ version //Number
+
++ device //false -or- Object
++ device.name //String
++ device.osVersion //Number
++ device.osVersionFull //String
 	
-	+ device //false -or- Object
-	+ device.name //String
-	+ device.osVersion //Number
-	+ device.osVersionFull //String
-	
-	+ ielt9 (ie version<9) //Boolean
++ ielt9 (ie version<9) //Boolean
 ```

@@ -9,6 +9,7 @@ In case you need some more information about your browser. For major browsers/de
 var browser = new Browser();
 
 browser.onOrientationChange = function( browserRef ) {
+	// browserRef == browser
 	console.log( browserRef.orientation ); // 0, 90, 180, -90
 	console.log( browserRef.layout ); //'portrait' -or- 'landscape'
 };
@@ -22,6 +23,7 @@ browser.onOrientationChange = function( browserRef ) {
 // Browser properties
 + name //String
 + version //Number
++ fullVersion //String
 
 + mobile //Boolean
 + touch	//Boolean

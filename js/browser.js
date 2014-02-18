@@ -21,7 +21,7 @@
 //===============================================================================================
 //-----------------------------------------------------------------------------------------------
 
-var Browser = function() {
+var Browser = function( self ) {
 				
 	this.userAgent = navigator.userAgent;
 	this.ua = this.userAgent.toLowerCase();
@@ -118,5 +118,23 @@ var Browser = function() {
 	delete( this.userAgent );
 	delete( this.deviceDetected );
 	delete( this.osDetected );
+	
+	this.saveOrientation = function() {
+		this.orientation = window.orientation;
+		if ( window.orientation == 0 || window.orientation == 180 ) this.layout = 'portrait';
+		else this.layout = 'landscape';
+	};
+	
+	if ( this.mobile ) {
+		this.saveOrientation();
 		
+		var updateOrientation = function() {
+			this.saveOrientation();
+			if ( this.onOrientationChange ) this.onOrientationChange();
+		};
+		
+		window.addEventListener( 'orientationchange', updateOrientation.bind( this ), false );
+	}
+	
+	
 };

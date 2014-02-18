@@ -116,7 +116,7 @@ var Browser = function( self ) {
 		case 'firefox':
 			if ( this.ua.indexOf( 'firefox/' ) != -1 ) {
 				this.version = this.ua.split( 'firefox/' )[1].split( '.' )[0];
-				this.fullVersion = this.ua.split( 'firefox/' )[1];
+				this.versionFull = this.ua.split( 'firefox/' )[1];
 			}
 			break;
 		case 'msie':

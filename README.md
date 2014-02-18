@@ -23,7 +23,7 @@ browser.onOrientationChange = function( browserRef ) {
 // Browser properties
 + name //String
 + version //Number
-+ fullVersion //String
++ versionFull //String
 
 + mobile //Boolean
 + touch	//Boolean

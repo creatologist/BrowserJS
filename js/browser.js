@@ -35,26 +35,37 @@ var Browser = function() {
 	this.name = null;
 	this.version = null;
 	
-	this.device = {
-		name	: null,
-		osVersion : null,
-		osVersionFull : null
-	};
+	this.device = false;
+	
+	// work on later
+	/*this.os = {
+		name			: null,
+		version			: null,
+		versionFull		: null
+	};*/
 	
 	this.ielt9 = false;
 	
+	this.deviceDetected = function( name ) {
+		this.device = {
+			name			: name,
+			osVersion 		: null,
+			osVersionFull 	: null
+		};
+	};
+	
 	if ( this.ua.indexOf( 'iphone' ) != -1 ) {
-		this.device.name = 'iphone';
+		this.deviceDetected( 'iphone' );
 	} else if ( this.ua.indexOf( 'ipad' ) != -1 ) {
-		this.device.name = 'ipad';
+		this.deviceDetected( 'ipad' );
 	} else if ( this.ua.indexOf( 'android' ) != -1 ) {
-		this.device.name = 'android';
+		this.deviceDetected( 'android' );
 		if ( this.ua.indexOf( 'version/' ) != -1 ) this.device.osVersion = this.ua.split( 'version/' )[1].split( '.' )[0];
 		if ( this.ua.indexOf( 'android ' ) != -1 ) this.device.osVersionFull = this.ua.split( 'android ' )[1].split( ';' )[0];
 	}
 	
 	// iphone + ipad - full os version ie: 7.0.3
-	if ( this.device.name && this.device.name == 'iphone' || this.device.name == 'ipad' ) {
+	if ( this.device !== null && ( this.device.name == 'iphone' || this.device.name == 'ipad' ) ) {
 		if ( this.ua.indexOf( 'version/' ) != -1 ) this.device.osVersion = this.ua.split( 'version/' )[1].split( '.' )[0];
 		if ( this.userAgent.indexOf( ' OS ' ) ) {
 			if ( this.userAgent.indexOf( ' like ' ) ) this.device.osVersionFull = this.userAgent.split( ' OS ' )[1].split( ( ' like ' ) )[0].split( '_' ).join( '.' );
@@ -67,7 +78,7 @@ var Browser = function() {
 	if ( this.name == null ) this.name = this.ua.match( /firefox/gi );
 	if ( this.name == null ) this.name = this.ua.match( /msie/gi );
 	
-	if ( this.name ) this.name = this.name[0];
+	if ( this.name && this.name instanceof Array ) this.name = this.name[0];
 	
 	switch( this.name ) {
 		case 'android':
@@ -100,10 +111,11 @@ var Browser = function() {
 				break;
 	}
 	
-	if ( this.device.osVersion ) this.device.osVersion = Number( this.device.osVersion );
+	if ( this.device && this.device.osVersion ) this.device.osVersion = Number( this.device.osVersion );
 	if ( this.version ) this.version = Number( this.version );
 	
 	delete( this.ua );
 	delete( this.userAgent );
+	delete( this.deviceDetected );
 		
 };

@@ -63,7 +63,7 @@
 			var h = '';
 			
 			for ( key in browser ) {
-				if ( typeof browser[key] != 'object' ) h += '<div class="item">' + key + ': <span>' + browser[key] + '</span><br /></div>';
+				if ( typeof browser[key] != 'object' || browser[key] === null ) h += '<div class="item">' + key + ': <span>' + browser[key] + '</span><br /></div>';
 				else {
 					for ( item in browser[key] )  h += '<div class="item">' + key + '.' + item + ': <span>' + browser[key][item] + '</span><br /></div>';
 				}

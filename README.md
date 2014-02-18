@@ -12,16 +12,16 @@ var browser = new Browser();
 ### 
 ```javascript
 // Browser properties
-+ mobile //Boolean
-+ touch	//Boolean
-	
 + name //String
 + version //Number
 
-+ device //false -or- Object
++ mobile //Boolean
++ touch	//Boolean
+	
++ device //undefined -or- Object
 + device.name //String
 + device.osVersion //Number
 + device.osVersionFull //String
-	
+
 + ielt9 (ie version<9) //Boolean
 ```

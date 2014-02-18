@@ -76,7 +76,7 @@
 			showBrowserInfo();
 			
 			// only fires if browser is a mobile device;
-			browser.onOrientationChange = function() {
+			browser.onOrientationChange = function( browserRef ) {
 				showBrowserInfo();
 			};
 		</script>

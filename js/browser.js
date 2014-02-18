@@ -130,7 +130,7 @@ var Browser = function( self ) {
 		
 		var updateOrientation = function() {
 			this.saveOrientation();
-			if ( this.onOrientationChange ) this.onOrientationChange();
+			if ( this.onOrientationChange ) this.onOrientationChange( this );
 		};
 		
 		window.addEventListener( 'orientationchange', updateOrientation.bind( this ), false );

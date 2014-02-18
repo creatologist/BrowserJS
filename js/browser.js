@@ -28,6 +28,7 @@ var Browser = function( self ) {
 	
 	this.name = null;
 	this.version = null;
+	this.versionFull = null;
 	
 	if ( window.orientation != undefined ) this.mobile = true;
 	else this.mobile = false;
@@ -101,10 +102,14 @@ var Browser = function( self ) {
 			} else if ( this.ua.indexOf( 'version/' ) != -1 ) {
 				this.version = this.ua.split( 'version/' )[1].split( '.' )[0];
 				
-				if ( this.ua.indexOf( ' safari/' ) != -1 ) {
-					this.versionFull = this.ua.split( 'version/' )[1].split( ' safari/' )[0];
-				} else if ( this.ua.indexOf( ' mobile/' ) != -1 ) {
-					this.versionFull = this.ua.split( 'version/' )[1].split( ' mobile/' )[0];
+				if ( this.mobile ) {
+					if ( this.ua.indexOf( ' mobile/' ) != -1 ) {
+						this.versionFull = this.ua.split( 'version/' )[1].split( ' mobile/' )[0];
+					}
+				} else {
+					if ( this.ua.indexOf( ' safari/' ) != -1 ) {
+						this.versionFull = this.ua.split( 'version/' )[1].split( ' safari/' )[0];
+					} 
 				}
 			}
 			break;
